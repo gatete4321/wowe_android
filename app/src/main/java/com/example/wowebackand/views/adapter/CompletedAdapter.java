@@ -68,7 +68,7 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
             date=itemView.findViewById(R.id.completed_item_date_display);
             techName=itemView.findViewById(R.id.completed_item_display_tech_name);
             itemView.setOnClickListener((view)->{
-                listener.onRecyclerViewItemCliked(getAdapterPosition(),view.getId(),appoitements.get(getAdapterPosition()));
+                listener.onRecyclerViewItemCliked(getAdapterPosition(),appoitements.get(getAdapterPosition()));
             });
         }
     }

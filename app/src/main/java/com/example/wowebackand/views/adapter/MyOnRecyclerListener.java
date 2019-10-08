@@ -7,7 +7,7 @@ import com.example.wowebackand.models.Client;
  * created by gatete rugamba
  * this will listen all click listener on all recycle view
  */
-public interface MyOnRecyclerListener {
+public interface MyOnRecyclerListener<E,T> {
 
-    public <E> void onRecyclerViewItemCliked(int position, int id,E e);
+    public void onRecyclerViewItemCliked(E e,T t);
 }

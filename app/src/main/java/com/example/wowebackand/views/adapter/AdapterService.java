@@ -66,7 +66,7 @@ public class AdapterService extends RecyclerView.Adapter<AdapterService.MyViewHo
             imageView=itemView.findViewById(R.id.frag_service_item_image_view);
             textView=itemView.findViewById(R.id.frag_service_item_text_view);
             itemView.setOnClickListener((view)->{
-                listener.onRecyclerViewItemCliked(getAdapterPosition(),view.getId(),services.get(getAdapterPosition()));
+                listener.onRecyclerViewItemCliked(null,services.get(getAdapterPosition()));
             });
         }
     }

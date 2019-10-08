@@ -35,7 +35,7 @@ public class DisplayFragComplete extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         viewModel= ViewModelProviders.of(this).get(CompletedViewModel.class);
-        CompletedAdapter adapter=new CompletedAdapter((position,id)->{
+        CompletedAdapter adapter=new CompletedAdapter((e,t)->{
             /**
              * hano turahashyira izindi code:zifata appoitement zikayishyira kuyindi fragment
              * i displayinga appoitements zabay completed
@@ -46,7 +46,7 @@ public class DisplayFragComplete extends Fragment
 
             MainActivity.navController.navigate(R.id.completedForm);
 
-            Toast.makeText(getActivity().getApplicationContext(),"position"+position,Toast.LENGTH_LONG)
+            Toast.makeText(getActivity().getApplicationContext(),"dfj",Toast.LENGTH_LONG)
                     .show();
         });
         recyclerView.setAdapter(adapter);
