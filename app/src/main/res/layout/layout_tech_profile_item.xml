@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <Button
+        android:id="@+id/button_make_appoitement"
+        android:layout_width="380dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="26dp"
+        android:background="#3fc5cc"
+        android:text="Book an appoitement"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tech_profile_item_progress" />
+
+
+    <ImageView
+        android:id="@+id/tech_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_item_tech_name"
+        app:layout_constraintEnd_toEndOf="@+id/tech_detail_ratingBar"
+        app:layout_constraintStart_toStartOf="@+id/profile_item_tech_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_android_black_24dp" />
+
+    <RatingBar
+        android:id="@+id/tech_detail_ratingBar"
+        android:layout_width="245dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="137dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_item_tech_carier_name" />
+
+    <TextView
+        android:id="@+id/profile_item_tech_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="21dp"
+        android:gravity="center"
+        android:text="eng tuyishime justin"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_item_tech_carier_name"
+        app:layout_constraintEnd_toEndOf="@+id/tech_detail_ratingBar"
+        app:layout_constraintStart_toStartOf="@+id/profile_item_tech_carier_name"
+        app:layout_constraintTop_toBottomOf="@+id/tech_image" />
+
+    <TextView
+        android:id="@+id/profile_item_tech_carier_name"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="electromechanics"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/tech_detail_ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_item_tech_name" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginBottom="11dp"
+        android:text="about mechanics"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/profile_item_tech_about"
+        app:layout_constraintStart_toStartOf="@+id/profile_item_tech_about"
+        app:layout_constraintTop_toBottomOf="@+id/tech_detail_ratingBar" />
+
+    <TextView
+        android:id="@+id/profile_item_tech_about"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:text="Nize muri iprc eng electromechanic \nmu bwubasti hamwe no kogosha no gukanika"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/profile_item_tech_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="kanombe:kigali"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/tech_profile_item_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/profile_item_tech_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_item_tech_about" />
+
+    <ProgressBar
+        android:id="@+id/tech_profile_item_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginBottom="12dp"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/button_make_appoitement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_item_tech_location" />
+</androidx.constraintlayout.widget.ConstraintLayout>

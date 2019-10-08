@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/make_app_button"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
+        android:text="submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_get_calendar" />
+
+    <CalendarView
+        android:id="@+id/make_app_get_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_date" />
+
+    <EditText
+        android:id="@+id/make_app_get_description"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="sobanura ho gake"
+        app:layout_constraintBottom_toBottomOf="@+id/make_app_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/make_app_description" />
+
+    <EditText
+        android:id="@+id/make_app_get_location"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="kigali,kanombe"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_location" />
+
+    <EditText
+        android:id="@+id/make_app_get_phone"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_contact" />
+
+    <ImageView
+        android:id="@+id/make_app_image_view"
+        android:layout_width="124dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toBottomOf="@+id/make_app_tech_name"
+        app:layout_constraintEnd_toStartOf="@+id/make_app_service_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_android_black_24dp" />
+
+    <TextView
+        android:id="@+id/make_app_description"
+        android:layout_width="395dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="62dp"
+        android:gravity="center"
+        android:text="description"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_get_location" />
+
+    <TextView
+        android:id="@+id/make_app_location"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:gravity="center"
+        android:text="location"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_get_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_contact" />
+
+    <TextView
+        android:id="@+id/make_app_tech_name"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginBottom="14dp"
+        android:gravity="center"
+        android:text="eng alex tura"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_contact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_service_name" />
+
+    <TextView
+        android:id="@+id/make_app_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:gravity="center"
+        android:text="contact number"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_tech_name" />
+
+    <TextView
+        android:id="@+id/make_app_date"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="izakorwa"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_get_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_app_description" />
+
+    <TextView
+        android:id="@+id/make_app_service_name"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="3dp"
+        android:text="servicename"
+        app:layout_constraintBottom_toTopOf="@+id/make_app_tech_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/make_app_image_view"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
