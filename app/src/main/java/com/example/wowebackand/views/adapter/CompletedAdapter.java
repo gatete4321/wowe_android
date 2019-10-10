@@ -40,7 +40,7 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
         holder.serviceName.setText("wowe"+appoitement.getServiceId());
         holder.techName.setText("rukara"+appoitement.getClientId());
         holder.date.setText(appoitement.getDoneTime().toString());
-//        holder.imageView.draw(R.drawable.ic_edi);
+        holder.imageView.setImageResource(R.drawable.electricie);
         holder.serviceName.setOnClickListener((view)->{
 //            listener.onRecyclerViewItemCliked(position,view.getId());
         });
@@ -63,7 +63,7 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
 
         public MyCompletedViewHoleder(@NonNull View itemView) {
             super(itemView);
-//            imageView=itemView.findViewById(R.id.pending_item_image);
+            imageView=itemView.findViewById(R.id.completed_item_image);
             serviceName=itemView.findViewById(R.id.completed_item_text_view_service_name);
             date=itemView.findViewById(R.id.completed_item_date_display);
             techName=itemView.findViewById(R.id.completed_item_display_tech_name);

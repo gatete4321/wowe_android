@@ -1,10 +1,9 @@
 package com.example.wowebackand.Retrofit;
 
-import com.example.wowebackand.models.Appoitement;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -13,10 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService
 {
-
-     public static List<Appoitement> appoitements;
-
-
     HttpLoggingInterceptor loggingInterceptor;
     public static Retrofit retrofit;
     OkHttpClient okHttpClient;

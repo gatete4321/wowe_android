@@ -32,9 +32,9 @@
             android:layout_below="@+id/completed_item_text_view_service_name"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="229dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="191dp"
+            android:layout_marginBottom="1dp"
             android:text="TextView" />
 
         <ImageView

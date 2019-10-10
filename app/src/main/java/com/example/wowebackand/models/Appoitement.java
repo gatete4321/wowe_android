@@ -1,5 +1,10 @@
 package com.example.wowebackand.models;
 
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.Date;
 
 public class Appoitement
@@ -105,4 +110,5 @@ public class Appoitement
     public void setCallNumber(Integer callNumber) {
         this.callNumber = callNumber;
     }
+
 }

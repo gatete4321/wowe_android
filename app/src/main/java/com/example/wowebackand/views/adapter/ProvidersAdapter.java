@@ -46,7 +46,8 @@ public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.MyPr
         holder.techDescription.setText(client.getPassword());
         holder.techName.setText(client.getUsername());
         holder.makeApp.setOnClickListener((view)->{
-            Toast.makeText(context,"make appoitement",Toast.LENGTH_SHORT).show();
+            MainActivity.navController.navigate(R.id.makeAppoitement);
+//            Toast.makeText(context,"make appoitement",Toast.LENGTH_SHORT).show();
             /**
              * hano nima clika ngomba kujya kuri make appoitementFragment
              */

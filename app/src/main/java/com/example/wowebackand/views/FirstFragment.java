@@ -22,6 +22,7 @@ public class FirstFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        getActivity().getActionBar().hide();
         return inflater.inflate(R.layout.first_fragment, container, false);
     }
 }

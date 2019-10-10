@@ -73,4 +73,8 @@ public class DisplayFragService extends Fragment {
  *     android:layout_width="match_parent"                                    *
  *     android:id="@+id/relative_main">                                       *
  ******************************************************************************
+ * &&&&&&&&&&&&&igisubizo&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ * nakoresheje host fragment muri navigation        &
+ * component nkuko first fragment na second zimeze  &
+ * &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  */

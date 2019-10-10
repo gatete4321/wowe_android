@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/header" />
 
         <TextView
-            android:id="@+id/make_app_service_name"
+            android:id="@+id/edit_app_service_name"
             android:layout_width="130dp"
             android:layout_height="34dp"
             android:layout_gravity="right|bottom"
@@ -34,10 +34,10 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_android_black_24dp"
-            android:id="@+id/make_app_tech_pic"/>
+            android:id="@+id/edit_app_tech_pic"/>
 
         <TextView
-            android:id="@+id/make_app_tech_name"
+            android:id="@+id/edit_app_tech_name"
             android:layout_width="125dp"
             android:layout_height="31dp"
             android:text="paul250"
@@ -56,7 +56,7 @@
         android:gravity="center"/>
 
     <EditText
-        android:id="@+id/make_app_get_phone"
+        android:id="@+id/edit_app_get_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
@@ -73,7 +73,7 @@
         android:text="location"/>
 
     <EditText
-        android:id="@+id/make_app_get_location"
+        android:id="@+id/edit_app_get_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -90,7 +90,7 @@
         android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/make_app_get_description"
+        android:id="@+id/edit_app_get_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -108,17 +108,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <CalendarView
-        android:id="@+id/make_app_get_calendar"
+        android:id="@+id/edit_app_get_calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_calen"/>
 </ScrollView>
 
     <Button
-        android:id="@+id/make_app_button_submit"
+        android:id="@+id/edit_app_button_submit"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="submit"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="delete"
+        android:id="@+id/edit_app_button_delete"
+        />
 
 </LinearLayout>
 </ScrollView>

@@ -41,6 +41,16 @@
         android:name="com.example.wowebackand.views.Completed_full_appoitement"
         tools:layout="@layout/display_completed_appoitement_view"
         android:label="completed"/>
+    <fragment
+        android:id="@+id/makeAppoitement"
+        android:name="com.example.wowebackand.views.MakeAppoitement"
+        android:label="Book Appoitement"
+        tools:layout="@layout/layout_make_appoitement"/>
+    <fragment
+        android:id="@+id/updateAppoitement"
+        android:name="com.example.wowebackand.views.pending_full_appoitement"
+        android:label=" edit Appoitement"
+        tools:layout="@layout/layout_edit_appoitement"/>
 
 
 </navigation>

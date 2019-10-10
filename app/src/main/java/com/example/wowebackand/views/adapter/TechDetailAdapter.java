@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Client;
+import com.example.wowebackand.views.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class TechDetailAdapter extends RecyclerView.Adapter<TechDetailAdapter.My
         holder.techLocation.setText(client.getClientLocation());
         holder.imageView.setImageResource(client.getStatus());
         holder.button.setOnClickListener((view) -> {
-//            MainActivity.navController.navigate(R.id.makeAppoitement); iyi id nago ibaho ni sample tu
+            MainActivity.navController.navigate(R.id.makeAppoitement);// iyi id nago ibaho ni sample tu
         });
     }
 

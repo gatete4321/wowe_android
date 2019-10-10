@@ -1,5 +1,6 @@
 package com.example.wowebackand.views.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Appoitement;
+import com.example.wowebackand.views.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,14 +40,37 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
     public void onBindViewHolder(@NonNull MyviewHolderPending holder, int position) {
 
         Appoitement appoitement=appoitements.get(position);
+        holder.imageView.setImageResource(R.drawable.abasuderezi);
         holder.serviceName.setText("ngewe"+appoitement.getServiceId());
-        holder.techName.setText("rugamaba"+appoitement.getClientId());
-        holder.dateDisplay.setText(appoitement.getDoneTime().toString());
+        holder.techName.setText("rugamba"+appoitement.getClientId());
+        holder.dateDisplay.setText(appoitement.getDoneTime().getDay()+"/"+appoitement.getDoneTime().getMonth()+"/"+(1900+appoitement.getDoneTime().getYear()));
         //        holder.imageView.draw(R.drawable.ic_edi);
         holder.techName.setOnClickListener((view)->{
-            //listener.onRecyclerViewItemCliked(position,view.getId());
+            /**
+             * hano turahita tujya kuri profile yu mu techinicie
+             */
             holder.techName.setText("gatete");
         });
+        holder.dateDisplay.setOnClickListener((view)->{
+            /**
+             * hano tura pasingamo datepicker dialog
+             */
+            listener.onRecyclerViewItemCliked(holder.dateDisplay,null);
+        });
+
+        holder.view2.setOnClickListener((view)->{
+            /**
+             * hano turapasingamo data zirimo appoitement ya ka kanya
+             * ahubwo ndakeka nza pasingamo appoitementId yonyine noneho izindi nkazikurura nkoresheje network
+             * arko mdumva azaba ari 4
+             */
+            Bundle args=new Bundle();
+//            args.putSerializable("data",appoitement);
+            args.putInt("data",appoitement.getTechId());
+
+            MainActivity.navController.navigate(R.id.updateAppoitement,args);
+        });
+
     }
 
     @Override
@@ -57,6 +82,8 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
 
     public class MyviewHolderPending extends RecyclerView.ViewHolder{
 
+        View view2;
+
         ImageView imageView;
         TextView serviceName;
         TextView techName;
@@ -67,9 +94,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
             serviceName=itemView.findViewById(R.id.pending_item_text_view_service_name);
             techName=itemView.findViewById(R.id.pending_item_display_tech_name);
             dateDisplay=itemView.findViewById(R.id.pending_item_date_display);
-            itemView.setOnClickListener((view)->{
-                listener.onRecyclerViewItemCliked(getAdapterPosition(),view.getId());
-            });
+            this.view2=itemView;
         }
     }
 
@@ -86,7 +111,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
         Appoitement appoitement ;
         for (int i=0;i<=12;i++){
             appoitement=new Appoitement();
-            appoitement.setTechId(i);
+            appoitement.setTechId(5);//R.drawable.abasuderezi);
             appoitement.setClientId(i);
             appoitement.setServiceId(i);
             appoitement.setDoneTime(new Date());
