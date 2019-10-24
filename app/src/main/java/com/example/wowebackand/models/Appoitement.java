@@ -3,11 +3,9 @@ package com.example.wowebackand.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.io.Serializable;
 import java.util.Date;
 
-public class Appoitement
+public class Appoitement implements Parcelable
 {
     private Integer clientId;
     private Integer techId;
@@ -22,6 +20,57 @@ public class Appoitement
 
     private Integer serviceId;
     private Integer callNumber;
+
+    public Appoitement() {
+    }
+
+    protected Appoitement(Parcel in) {
+        if (in.readByte() == 0) {
+            clientId = null;
+        } else {
+            clientId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            techId = null;
+        } else {
+            techId = in.readInt();
+        }
+        feedBack = in.readString();
+        if (in.readByte() == 0) {
+            status = null;
+        } else {
+            status = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            rate = null;
+        } else {
+            rate = in.readInt();
+        }
+        plaque = in.readString();
+        description = in.readString();
+        if (in.readByte() == 0) {
+            serviceId = null;
+        } else {
+            serviceId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            callNumber = null;
+        } else {
+            callNumber = in.readInt();
+        }
+    }
+
+    public static final Creator<Appoitement> CREATOR = new Creator<Appoitement>() {
+        @Override
+        public Appoitement createFromParcel(Parcel in) {
+            return new Appoitement(in);
+        }
+
+        @Override
+        public Appoitement[] newArray(int size) {
+            return new Appoitement[size];
+        }
+    };
 
     public Integer getClientId() {
         return clientId;
@@ -111,4 +160,51 @@ public class Appoitement
         this.callNumber = callNumber;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (clientId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(clientId);
+        }
+        if (techId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(techId);
+        }
+        dest.writeString(feedBack);
+        if (status == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(status);
+        }
+        if (rate == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(rate);
+        }
+        dest.writeString(plaque);
+        dest.writeString(description);
+        if (serviceId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(serviceId);
+        }
+        if (callNumber == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(callNumber);
+        }
+    }
 }

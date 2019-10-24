@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements
 
         navigationView =findViewById(R.id.navigationView);
 
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout);
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements
         NavigationUI.setupWithNavController(navigationView, navController);
 
         navigationView.setNavigationItemSelectedListener(this);
+
 
     }
 

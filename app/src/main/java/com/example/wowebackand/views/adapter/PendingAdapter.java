@@ -40,7 +40,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
     public void onBindViewHolder(@NonNull MyviewHolderPending holder, int position) {
 
         Appoitement appoitement=appoitements.get(position);
-        holder.imageView.setImageResource(R.drawable.abasuderezi);
+        holder.imageView.setImageResource(appoitement.getTechId());
         holder.serviceName.setText("ngewe"+appoitement.getServiceId());
         holder.techName.setText("rugamba"+appoitement.getClientId());
         holder.dateDisplay.setText(appoitement.getDoneTime().getDay()+"/"+appoitement.getDoneTime().getMonth()+"/"+(1900+appoitement.getDoneTime().getYear()));
@@ -66,7 +66,8 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
              */
             Bundle args=new Bundle();
 //            args.putSerializable("data",appoitement);
-            args.putInt("data",appoitement.getTechId());
+//            args.putInt("data",appoitement.getTechId());
+            args.putParcelable("data",appoitement);
 
             MainActivity.navController.navigate(R.id.updateAppoitement,args);
         });
@@ -111,7 +112,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
         Appoitement appoitement ;
         for (int i=0;i<=12;i++){
             appoitement=new Appoitement();
-            appoitement.setTechId(5);//R.drawable.abasuderezi);
+            appoitement.setTechId(R.drawable.abasuderezi);
             appoitement.setClientId(i);
             appoitement.setServiceId(i);
             appoitement.setDoneTime(new Date());

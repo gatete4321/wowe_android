@@ -40,7 +40,7 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
         holder.serviceName.setText("wowe"+appoitement.getServiceId());
         holder.techName.setText("rukara"+appoitement.getClientId());
         holder.date.setText(appoitement.getDoneTime().toString());
-        holder.imageView.setImageResource(R.drawable.electricie);
+        holder.imageView.setImageResource(R.drawable.abasuderezi);
         holder.serviceName.setOnClickListener((view)->{
 //            listener.onRecyclerViewItemCliked(position,view.getId());
         });

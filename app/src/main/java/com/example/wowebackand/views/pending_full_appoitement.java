@@ -32,19 +32,20 @@ public class pending_full_appoitement extends Fragment
     EditText phone,description,location;
     Button submit,delete;
 
-    Integer appoitement;
+    Appoitement appoitement;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.layout_edit_appoitement,container,false);
         initializeViews(view);
-        initializeFakeData();
+
         Bundle bundle=getArguments();
         if (bundle!=null){
             Log.e("bundle","bundle is not null");
-            appoitement= (Integer) bundle.getInt("data");
-            Log.e("datas", "not null"+appoitement);
+            appoitement= bundle.getParcelable("data");
+            Log.e("datas", "not null"+appoitement.getClientId());
         }
+        initializeFakeData();
 
         return view;
     }
@@ -64,11 +65,11 @@ public class pending_full_appoitement extends Fragment
 
 
     private void initializeFakeData() {
-        if (appoitement==null){
-//            serviceName.setText("gukanika"+appoitement.getClientId());
-//            techName.setText("gahire"+appoitement.getServiceId());
-//            techPic.setImageResource(appoitement);
-//            calendarView.setDate(appoitement.getDoneTime().getTime());
+        if (appoitement!=null){
+            serviceName.setText("gukanika"+appoitement.getClientId());
+            techName.setText("gahire"+appoitement.getServiceId());
+            techPic.setImageResource(appoitement.getTechId());
+            calendarView.setDate(appoitement.getDoneTime().getTime());
             Log.e("passing","appoitement is not null");
             return;
         }

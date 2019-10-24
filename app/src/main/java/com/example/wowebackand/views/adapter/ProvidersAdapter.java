@@ -42,7 +42,7 @@ public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.MyPr
     {
         Client client=technicians.get(position);
 
-        holder.techImage.setImageResource(client.getClientId());
+        holder.techImage.setImageResource(R.drawable.ic_save_black_24dp);
         holder.techDescription.setText(client.getPassword());
         holder.techName.setText(client.getUsername());
         holder.makeApp.setOnClickListener((view)->{
