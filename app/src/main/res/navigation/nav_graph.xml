@@ -11,15 +11,15 @@
         android:label="First Fragment"
         tools:layout="@layout/first_fragment" />
     <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.wowebackand.views.SecondFragment"
+        android:id="@+id/notification"
+        android:name="com.example.wowebackand.views.Notification"
         android:label="Second Fragment"
-        tools:layout="@layout/second_fragment" />
+        tools:layout="@layout/notification" />
     <fragment
-        android:id="@+id/thirdFragment"
-        android:name="com.example.wowebackand.views.ThirdFragment"
+        android:id="@+id/MyProfileFrag"
+        android:name="com.example.wowebackand.views.MyProfile"
         android:label="Third Fragment"
-        tools:layout="@layout/third_fragment" />
+        tools:layout="@layout/my_profile" />
     <fragment
         android:id="@+id/defaultFragment"
         android:name="com.example.wowebackand.views.DefaultFragment"
@@ -33,8 +33,8 @@
     </fragment>
     <fragment
         android:id="@+id/techDetail"
-        android:name="com.example.wowebackand.views.recycles.DisplayTechDetail"
-        tools:layout="@layout/layout_tech_detail"
+        android:name="com.example.wowebackand.views.TechProfile"
+        tools:layout="@layout/layout_tech_profile_item"
         android:label="tech"/>
     <fragment
         android:id="@+id/completedForm"
@@ -51,6 +51,18 @@
         android:name="com.example.wowebackand.views.pending_full_appoitement"
         android:label=" edit Appoitement"
         tools:layout="@layout/layout_edit_appoitement"/>
-
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.wowebackand.views.Register"
+        tools:layout="@layout/fragment_register"/>
+    <fragment
+        android:id="@+id/testNavigation"
+        android:name="com.example.wowebackand.views.LogIn"
+        tools:layout="@layout/test_navigation"/>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.wowebackand.views.AboutUs"
+        tools:layout="@layout/fragment_about_us"
+        android:label="about us"/>
 
 </navigation>

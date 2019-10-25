@@ -47,6 +47,7 @@ public class pending_full_appoitement extends Fragment
         }
         initializeFakeData();
 
+
         return view;
     }
 
@@ -73,7 +74,6 @@ public class pending_full_appoitement extends Fragment
             Log.e("passing","appoitement is not null");
             return;
         }
-        Log.e("pas data","appoitement is null");
         serviceName.setText("gukanika");
         techName.setText("gahire");
         techPic.setImageResource(R.drawable.header);

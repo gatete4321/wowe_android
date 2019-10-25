@@ -20,9 +20,9 @@ public class ProvideViewModel extends AndroidViewModel {
 
     public ProvideViewModel(@NonNull Application application) {
         super(application);
-        respostory=new ClientRespostory();
+        respostory=new ClientRespostory(application);
     }
-    public MutableLiveData<List<Client>> getClientLivedata(){
-        return null;
+    public MutableLiveData<List<Client>> getListClientLivedata(Integer serviceId){
+        return respostory.techList(serviceId);
     }
 }

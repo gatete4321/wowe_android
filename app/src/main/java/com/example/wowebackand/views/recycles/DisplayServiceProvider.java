@@ -1,14 +1,18 @@
 package com.example.wowebackand.views.recycles;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 
 import com.example.wowebackand.R;
+import com.example.wowebackand.models.Client;
 import com.example.wowebackand.viewModel.ProvideViewModel;
 import com.example.wowebackand.views.adapter.ProvidersAdapter;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,11 +34,21 @@ public class DisplayServiceProvider extends Fragment
 
     private ProvidersAdapter adapter;
 
+    List<Client> clientList;
+
+    private Integer serviceId;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.layout_frag_service_provider,container,false);
 
+        Bundle bundle=getArguments();
+        if (bundle!=null){
+            Log.e("service","bundle is not null");
+            serviceId= bundle.getInt("serviceId");
+            Log.e("services", "not null"+serviceId);
+        }
 
 
 
@@ -51,16 +65,19 @@ public class DisplayServiceProvider extends Fragment
          * {
          *    private String serviceName;         *
          * }
-         * on 30/9/2019         */
+         * on 30/9/2019
+         * na pasinzemo Integer serviceId aba technicie bose batanga iyo service
+         * @23/10/2019
+         * */
 
-        adapter=new ProvidersAdapter(getActivity().getApplicationContext());
+
+        viewModel.getListClientLivedata(serviceId).observe(this,client -> {
+            clientList=client;
+        });
+        adapter=new ProvidersAdapter(getActivity().getApplicationContext(),clientList);
+
 
         recyclerView.setAdapter(adapter);
-
-//        viewModel.getClientLivedata().observe(this,client -> {
-//            adapter.setTechnicians(client);
-//        });
-
 
         return view;
     }

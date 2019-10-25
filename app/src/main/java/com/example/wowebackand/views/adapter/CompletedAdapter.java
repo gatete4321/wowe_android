@@ -1,5 +1,6 @@
 package com.example.wowebackand.views.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Appoitement;
+import com.example.wowebackand.views.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,6 +43,12 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
         holder.techName.setText("rukara"+appoitement.getClientId());
         holder.date.setText(appoitement.getDoneTime().toString());
         holder.imageView.setImageResource(R.drawable.abasuderezi);
+        holder.view.setOnClickListener((view)->{
+
+            Bundle bundle=new Bundle();
+            bundle.putParcelable("completed",appoitement);
+            MainActivity.navController.navigate(R.id.completedForm,bundle);
+        });
         holder.serviceName.setOnClickListener((view)->{
 //            listener.onRecyclerViewItemCliked(position,view.getId());
         });
@@ -60,6 +68,7 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
         ImageView imageView;
 
         TextView serviceName,date,techName;
+        View view;
 
         public MyCompletedViewHoleder(@NonNull View itemView) {
             super(itemView);
@@ -67,9 +76,12 @@ public class CompletedAdapter extends RecyclerView.Adapter<CompletedAdapter.MyCo
             serviceName=itemView.findViewById(R.id.completed_item_text_view_service_name);
             date=itemView.findViewById(R.id.completed_item_date_display);
             techName=itemView.findViewById(R.id.completed_item_display_tech_name);
-            itemView.setOnClickListener((view)->{
-                listener.onRecyclerViewItemCliked(getAdapterPosition(),appoitements.get(getAdapterPosition()));
-            });
+
+            view=itemView;
+
+//            itemView.setOnClickListener((view)->{
+//                listener.onRecyclerViewItemCliked(getAdapterPosition(),appoitements.get(getAdapterPosition()));
+//            });
         }
     }
     public void setAppoitements(List<Appoitement> appoitements){

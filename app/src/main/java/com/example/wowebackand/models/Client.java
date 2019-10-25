@@ -1,5 +1,8 @@
 package com.example.wowebackand.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
 /**
@@ -8,7 +11,7 @@ import java.util.Date;
  * string clientLocation;
  * int rates;
  */
-public class Client
+public class Client implements Parcelable
 {
     private Integer clientId;
 
@@ -45,6 +48,51 @@ public class Client
     //the client the service does
     private Integer serviceId;
 
+    public Client(){
+
+    }
+
+    protected Client(Parcel in) {
+        if (in.readByte() == 0) {
+            clientId = null;
+        } else {
+            clientId = in.readInt();
+        }
+        phoneNumber = in.readString();
+        if (in.readByte() == 0) {
+            rates = null;
+        } else {
+            rates = in.readInt();
+        }
+        clientAbout = in.readString();
+        clientLocation = in.readString();
+        username = in.readString();
+        password = in.readString();
+        email = in.readString();
+        profileImage = in.readString();
+        if (in.readByte() == 0) {
+            status = null;
+        } else {
+            status = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            serviceId = null;
+        } else {
+            serviceId = in.readInt();
+        }
+    }
+
+    public static final Creator<Client> CREATOR = new Creator<Client>() {
+        @Override
+        public Client createFromParcel(Parcel in) {
+            return new Client(in);
+        }
+
+        @Override
+        public Client[] newArray(int size) {
+            return new Client[size];
+        }
+    };
 
     public Integer getRates() {
         return rates;
@@ -140,5 +188,45 @@ public class Client
 
     public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (clientId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(clientId);
+        }
+        dest.writeString(phoneNumber);
+        if (rates == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(rates);
+        }
+        dest.writeString(clientAbout);
+        dest.writeString(clientLocation);
+        dest.writeString(username);
+        dest.writeString(password);
+        dest.writeString(email);
+        dest.writeString(profileImage);
+        if (status == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(status);
+        }
+        if (serviceId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(serviceId);
+        }
     }
 }

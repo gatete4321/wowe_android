@@ -1,6 +1,7 @@
 package com.example.wowebackand.views;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +10,13 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wowebackand.R;
+import com.example.wowebackand.models.Appoitement;
+import com.example.wowebackand.models.Client;
+
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +29,8 @@ public class MakeAppoitement extends Fragment
 {
     Integer phoneNumber;
     String loct,descr;
+    Bundle bundle;
+    Client client;
 
     Button submit;
     TextView serviceName,techName;
@@ -33,8 +41,25 @@ public class MakeAppoitement extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.layout_make_appoitement,container,false);
+        bundle=getArguments();
+        client=bundle.getParcelable("client");
+
         initializeViews(view);
         initializeFakeData();
+
+        submit.setOnClickListener((view1)->{
+            if (phone.getText().toString().trim().isEmpty()||description.getText().toString().trim().isEmpty()){
+                Toast.makeText(getContext(),"please enter phone,description",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            /**
+             * hano turahakora staff zo ku submiting appoitement kuri server
+             * niba byagenze fresh Toast.makeText("done").show;
+             * else
+             * ("fail")
+             */
+            MainActivity.navController.navigate(R.id.defaultFragment);
+        });
 
         return view;
     }
@@ -49,10 +74,33 @@ public class MakeAppoitement extends Fragment
         description=view.findViewById(R.id.make_app_get_description);
         location=view.findViewById(R.id.make_app_get_location);
         submit=view.findViewById(R.id.make_app_button_submit);
+        submit.setOnClickListener((view1)->{
+            /**
+             * tuza submiinga data kuri server
+             */
+            if (location.getText().toString().trim().isEmpty()||
+                description.getText().toString().trim().isEmpty()||
+                phone.getText().toString().trim().isEmpty()
+            ) {
+               Toast.makeText(getContext(),"please fill data",Toast.LENGTH_SHORT).show();
+               return;
+            }
+            makeAppoitement();
+            MainActivity.navController.navigate(R.id.defaultFragment);
+        });
     }
 
 
+
+
     private void initializeFakeData() {
+        if (!client.equals(null)){
+            serviceName.setText("amazi");
+            techName.setText(client.getUsername());
+            techPic.setImageResource(client.getClientId());
+            Log.e("appoitement","client not null");
+            return;
+        }
         serviceName.setText("gukanika");
         techName.setText("gahire");
         techPic.setImageResource(R.drawable.header);
@@ -60,5 +108,20 @@ public class MakeAppoitement extends Fragment
         calendarView.setOnDateChangeListener((view,i,i1,i2)->{
             serviceName.setText((i1+1)+"/"+i2+"/"+i);
         });
+    }
+
+    private void makeAppoitement() {
+        Appoitement appoitement = new Appoitement();
+
+        appoitement.setServiceId(client.getServiceId());
+        appoitement.setClientId(1);//"uyu muyuza tu uri kuyikoresha"
+        appoitement.setTechId(client.getClientId());
+        appoitement.setDoneTime(new Date(calendarView.getDate()));
+        appoitement.setDescription(description.getText().toString()+"@location"+location.getText().toString()+"@phone"+phone.getText().toString());
+    if (true){
+        /**
+         * the appoitement was suceesfully Toast the message that was sucesfully
+         */
+    }
     }
 }

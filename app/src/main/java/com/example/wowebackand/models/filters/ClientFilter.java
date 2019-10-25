@@ -12,6 +12,16 @@ public class ClientFilter
 
     private String email;
 
+    private Integer serviceId;
+
+    public Integer getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Integer serviceId) {
+        this.serviceId = serviceId;
+    }
+
     public Integer getClientId() {
         return clientId;
     }

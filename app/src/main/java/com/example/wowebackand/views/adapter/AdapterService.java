@@ -4,6 +4,7 @@ package com.example.wowebackand.views.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,15 @@ public class AdapterService extends RecyclerView.Adapter<AdapterService.MyViewHo
         Service service=services.get(position);
         holder.textView.setText(service.getServiceName());
         holder.imageView.setImageResource(service.getServiceImageId());
+        holder.view.setOnClickListener((view)->{
+            /**
+             * for navigating to other fragment,and passing other data using bundle
+             * am gona to run about actions in fragments
+             */
+            Bundle bundle=new Bundle();
+            bundle.putInt("serviceId",service.getServiceId());
+            MainActivity.navController.navigate(R.id.serviceProvider,bundle);
+        });
     }
 
     @Override
@@ -60,13 +70,17 @@ public class AdapterService extends RecyclerView.Adapter<AdapterService.MyViewHo
     public class MyViewHolderService extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView textView;
+        View view;
 
         public MyViewHolderService(@NonNull View itemView) {
             super(itemView);
+            view=itemView;
             imageView=itemView.findViewById(R.id.frag_service_item_image_view);
             textView=itemView.findViewById(R.id.frag_service_item_text_view);
             itemView.setOnClickListener((view)->{
-                listener.onRecyclerViewItemCliked(null,services.get(getAdapterPosition()));
+//                listener.onRecyclerViewItemCliked(null,services.get(getAdapterPosition()));
+
+
             });
         }
     }

@@ -15,8 +15,9 @@ import retrofit2.http.POST;
 public interface ClientNet
 {
     @POST("/create")
-    Call<String> createClient(@Body Client client);
+    Call<Integer> createClient(@Body Client client);
 
+    @POST("/delete")
     Call<String> deleteClient(@Body ClientFilter filter);
 
 
@@ -27,6 +28,12 @@ public interface ClientNet
     @POST("public/client/info")
     Call<Client> getClient(@Body ClientFilter filter);
 
+    /**
+     * get list of techinicians
+     * @param filter
+     * @return
+     */
     @POST("public/client/all")
     Call<List<Client>> getListTech(@Body ClientFilter filter);
+
 }

@@ -1,6 +1,7 @@
 package com.example.wowebackand.views;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -8,16 +9,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import androidx.viewpager.widget.ViewPager;
-
+import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.navigation.ui.NavigationUI;
+
 import com.example.wowebackand.R;
+import com.example.wowebackand.test.TestNavFragment;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -25,7 +27,13 @@ public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener
 {
 
+
+
+    Dialog dialog;
+
     public Toolbar toolbar;
+
+    ActionBarDrawerToggle toggle;
 
     public DrawerLayout drawerLayout;
 
@@ -50,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
+
+
+//        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -104,18 +115,43 @@ public class MainActivity extends AppCompatActivity implements
                 break;
 
             case R.id.second:
-                navController.navigate(R.id.secondFragment);
+                navController.navigate(R.id.notification);
 
                 break;
 
             case R.id.third:
-                navController.navigate(R.id.thirdFragment);
+                navController.navigate(R.id.MyProfileFrag);
+                break;
+            case R.id.about_us_menu:
+                navController.navigate(R.id.aboutUsFragment);
                 break;
 
+            case R.id.logout_menu:
+//                logoutP();
+//                TestNavFragment.controller.navigate(R.id.loginFragment);
+                navController.navigate(R.id.testNavigation);
+                break;
         }
         return true;
 
     }
 
-
+    void logoutP(){
+        TextView logout,cancel;
+        dialog=new Dialog(this);
+        dialog.setContentView(R.layout.dialbox_logout);
+        logout=dialog.findViewById(R.id.real_logout);
+        cancel=dialog.findViewById(R.id.cancel_logout);
+        cancel.setOnClickListener((view)->{
+            dialog.dismiss();
+        });
+        logout.setOnClickListener((view)->{
+            /**
+             * tuzahasyira code zo ku loginga out
+             */
+            Toast.makeText(this,"log out",Toast.LENGTH_SHORT).show();
+            dialog.dismiss();
+        });
+        dialog.show();
+    }
 }

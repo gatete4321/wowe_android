@@ -44,7 +44,7 @@ public class DisplayFragComplete extends Fragment
              * @29/9/2019
              */
 
-            MainActivity.navController.navigate(R.id.completedForm);
+
 
             Toast.makeText(getActivity().getApplicationContext(),"dfj",Toast.LENGTH_LONG)
                     .show();

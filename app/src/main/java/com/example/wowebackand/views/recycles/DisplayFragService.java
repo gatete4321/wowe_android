@@ -49,8 +49,7 @@ public class DisplayFragService extends Fragment {
             /**
              * for navigaing to other fragment,and passing other data uusing bundle
              * am gona to run about actions in fragments
-             */
-            MainActivity.navController.navigate(R.id.serviceProvider,new Bundle());
+             */ MainActivity.navController.navigate(R.id.serviceProvider,new Bundle());
         }),getActivity());
         recyclerView.setAdapter(adapterService);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
