@@ -24,7 +24,7 @@ public interface AppoitementNet
 //    Call<List<Appoitement>> getPendingAppoitements(Integer clientId);
 
     @POST("/create")
-    Call<String> createAppoitemen(@Body Appoitement appoitement);
+    Call<String> createAppoitement(@Body Appoitement appoitement);
 
     @POST("/delete")
     Call<String> deleteAppoitement(@Body AppoitementFilter filter);

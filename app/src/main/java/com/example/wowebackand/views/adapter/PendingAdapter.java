@@ -40,7 +40,7 @@ public class PendingAdapter extends RecyclerView.Adapter<PendingAdapter.MyviewHo
     public void onBindViewHolder(@NonNull MyviewHolderPending holder, int position) {
 
         Appoitement appoitement=appoitements.get(position);
-        holder.imageView.setImageResource(appoitement.getTechId());
+        holder.imageView.setImageResource(R.drawable.ic_email_account);
         holder.serviceName.setText("ngewe"+appoitement.getServiceId());
         holder.techName.setText("rugamba"+appoitement.getClientId());
         holder.dateDisplay.setText(appoitement.getDoneTime().getDay()+"/"+appoitement.getDoneTime().getMonth()+"/"+(1900+appoitement.getDoneTime().getYear()));

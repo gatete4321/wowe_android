@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Client;
 import com.example.wowebackand.views.MainActivity;
+import com.example.wowebackand.views.recycles.DisplayServiceProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,7 +82,7 @@ public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.MyPr
 
     @Override
     public int getItemCount() {
-        if (technicians.equals(null)){
+        if (DisplayServiceProvider.clientList==null){
             initialize();
         }
         return technicians.size();
@@ -124,4 +125,5 @@ public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.MyPr
             technicians.add(client);
         }
     }
+
 }

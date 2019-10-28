@@ -32,9 +32,9 @@ public class DisplayServiceProvider extends Fragment
 
     private ProvideViewModel viewModel;
 
-    private ProvidersAdapter adapter;
+//    private ProvidersAdapter adapter;
 
-    List<Client> clientList;
+    public  static List<Client> clientList;
 
     private Integer serviceId;
 
@@ -70,14 +70,14 @@ public class DisplayServiceProvider extends Fragment
          * @23/10/2019
          * */
 
+        ProvidersAdapter adapter=new ProvidersAdapter(getActivity().getApplicationContext(),clientList);
+
+
+        recyclerView.setAdapter(adapter);
 
         viewModel.getListClientLivedata(serviceId).observe(this,client -> {
             clientList=client;
         });
-        adapter=new ProvidersAdapter(getActivity().getApplicationContext(),clientList);
-
-
-        recyclerView.setAdapter(adapter);
 
         return view;
     }

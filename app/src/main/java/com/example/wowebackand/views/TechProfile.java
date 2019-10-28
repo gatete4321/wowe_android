@@ -46,7 +46,7 @@ public class TechProfile extends Fragment {
         bundle=getArguments();
         client=(Client) bundle.getParcelable("client");
         if (!client.equals(null)) {
-            imageView.setImageResource(client.getClientId());
+            imageView.setImageResource(R.drawable.ic_phone_account);
             techName.setText(client.getUsername());
             Log.e("techProfile1","client is noo null");
         }

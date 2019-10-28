@@ -33,9 +33,12 @@ public class AppoitementRespostory {
      * @param appoitement
      * @return
      */
-    public Appoitement insertAppoitement(Appoitement appoitement) {
+    public String insertAppoitement(Appoitement appoitement) {
 
-        return null;
+        Call<String> call=appoitementNet.createAppoitement(appoitement);
+        DoNet<String> net=new DoNet<>();
+        call.enqueue(net);
+        return net.getLiveData().getValue();
     }
 
     /**
