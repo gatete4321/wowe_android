@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 
 import com.example.wowebackand.R;
-import com.example.wowebackand.views.FirstFragment;
-import com.example.wowebackand.views.MainActivity;
+import com.example.wowebackand.MainActivity;
 import com.example.wowebackand.views.adapter.AdapterService;
 
 import androidx.annotation.NonNull;

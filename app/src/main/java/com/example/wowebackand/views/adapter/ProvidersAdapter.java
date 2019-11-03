@@ -1,6 +1,5 @@
 package com.example.wowebackand.views.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Client;
-import com.example.wowebackand.views.MainActivity;
+import com.example.wowebackand.MainActivity;
 import com.example.wowebackand.views.recycles.DisplayServiceProvider;
 
 import java.util.ArrayList;

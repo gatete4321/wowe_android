@@ -19,9 +19,11 @@ public class ClientRespostory
 
     ClientNet net;
 
+    Application application;
 
     public ClientRespostory(Application application) {
         net= RetrofitService.createService(ClientNet.class);
+        this.application=application;
     }
 
     public Client getClientInfo(ClientFilter filter){

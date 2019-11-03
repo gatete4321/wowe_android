@@ -17,11 +17,12 @@ public class Appoitement implements Parcelable
     private String plaque;
     private String description;
 
-
+    private long today;
     private Integer serviceId;
-    private Integer callNumber;
+    private String clientName;
 
-    public Appoitement() {
+    public Appoitement(){
+
     }
 
     protected Appoitement(Parcel in) {
@@ -48,16 +49,13 @@ public class Appoitement implements Parcelable
         }
         plaque = in.readString();
         description = in.readString();
+        today = in.readLong();
         if (in.readByte() == 0) {
             serviceId = null;
         } else {
             serviceId = in.readInt();
         }
-        if (in.readByte() == 0) {
-            callNumber = null;
-        } else {
-            callNumber = in.readInt();
-        }
+        clientName = in.readString();
     }
 
     public static final Creator<Appoitement> CREATOR = new Creator<Appoitement>() {
@@ -144,6 +142,14 @@ public class Appoitement implements Parcelable
         this.description = description;
     }
 
+    public long getToday() {
+        return today;
+    }
+
+    public void setToday(long today) {
+        this.today = today;
+    }
+
     public Integer getServiceId() {
         return serviceId;
     }
@@ -152,12 +158,12 @@ public class Appoitement implements Parcelable
         this.serviceId = serviceId;
     }
 
-    public Integer getCallNumber() {
-        return callNumber;
+    public String getClientName() {
+        return clientName;
     }
 
-    public void setCallNumber(Integer callNumber) {
-        this.callNumber = callNumber;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
     @Override
@@ -194,17 +200,13 @@ public class Appoitement implements Parcelable
         }
         dest.writeString(plaque);
         dest.writeString(description);
+        dest.writeLong(today);
         if (serviceId == null) {
             dest.writeByte((byte) 0);
         } else {
             dest.writeByte((byte) 1);
             dest.writeInt(serviceId);
         }
-        if (callNumber == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(callNumber);
-        }
+        dest.writeString(clientName);
     }
 }

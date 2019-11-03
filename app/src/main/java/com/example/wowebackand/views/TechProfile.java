@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.wowebackand.MainActivity;
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Client;
 

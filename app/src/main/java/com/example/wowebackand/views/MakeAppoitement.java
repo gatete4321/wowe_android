@@ -12,12 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wowebackand.MainActivity;
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Appoitement;
 import com.example.wowebackand.models.Client;
 import com.example.wowebackand.respostory.AppoitementRespostory;
-
-import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,33 +48,9 @@ public class MakeAppoitement extends Fragment {
         initializeViews(view);
         initializeFakeData();
 
-        submit.setOnClickListener((view1) -> {
-            if (phone.getText().toString().trim().isEmpty() || description.getText().toString().trim().isEmpty()) {
-                Toast.makeText(getContext(), "please enter phone,description", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            /**
-             * hano turahakora staff zo ku submiting appoitement kuri server
-             * niba byagenze fresh Toast.makeText("done").show;
-             * else
-             * ("fail")
-             */
-            MainActivity.navController.navigate(R.id.defaultFragment);
-        });
-
-        return view;
-    }
 
 
-    private void initializeViews(View view) {
-        serviceName = view.findViewById(R.id.make_app_service_name);
-        techName = view.findViewById(R.id.make_app_tech_name);
-        techPic = view.findViewById(R.id.make_app_tech_pic);
-        calendarView = view.findViewById(R.id.make_app_get_calendar);
-        phone = view.findViewById(R.id.make_app_get_phone);
-        description = view.findViewById(R.id.make_app_get_description);
-        location = view.findViewById(R.id.make_app_get_location);
-        submit = view.findViewById(R.id.make_app_button_submit);
+
         submit.setOnClickListener((view1) -> {
             /**
              * tuza submiinga data kuri server
@@ -92,6 +67,21 @@ public class MakeAppoitement extends Fragment {
             makeAppoitement();
             MainActivity.navController.navigate(R.id.defaultFragment);
         });
+
+        return view;
+    }
+
+
+    private void initializeViews(View view) {
+        serviceName = view.findViewById(R.id.make_app_service_name);
+        techName = view.findViewById(R.id.make_app_tech_name);
+        techPic = view.findViewById(R.id.make_app_tech_pic);
+        calendarView = view.findViewById(R.id.make_app_get_calendar);
+        phone = view.findViewById(R.id.make_app_get_phone);
+        description = view.findViewById(R.id.make_app_get_description);
+        location = view.findViewById(R.id.make_app_get_location);
+        submit = view.findViewById(R.id.make_app_button_submit);
+
     }
 
 
@@ -112,14 +102,15 @@ public class MakeAppoitement extends Fragment {
         });
     }
 
-    private void makeAppoitement() {
+    public void makeAppoitement() {
         Appoitement appoitement = new Appoitement();
 
         appoitement.setServiceId(client.getServiceId());
         appoitement.setClientId(1);//"uyu muyuza tu uri kuyikoresha"
-        appoitement.setTechId(client.getClientId());
-        appoitement.setDoneTime(new Date(calendarView.getDate()));
-        appoitement.setDescription(description.getText().toString() + "@location" + location.getText().toString() + "@phone" + phone.getText().toString());
+        appoitement.setTechId(5);//client.getClientId()
+        appoitement.setToday(calendarView.getDate());
+        appoitement.setDescription(description.getText().toString() + "@location" + location.getText().toString()+"@phone"+phone.getText().toString());
+        appoitement.setClientName(client.getUsername());
 
         AppoitementRespostory respostory = new AppoitementRespostory(null);
 
@@ -127,6 +118,7 @@ public class MakeAppoitement extends Fragment {
 
         Log.e("makeAppoitement","makeAppoitement yahageze");
 
+        if(result!=null){
         if (result.equals("done")) {
             /**
              * the appoitement was suceesfully Toast the message that was sucesfully
@@ -137,5 +129,6 @@ public class MakeAppoitement extends Fragment {
         else
             Log.e("makeAppoitement3","makeAppoitement yahageze kandi fail");
             Toast.makeText(getContext(),"fail to create",Toast.LENGTH_SHORT).show();
+    }
     }
 }

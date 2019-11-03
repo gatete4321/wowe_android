@@ -6,11 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Appoitement;
-import com.example.wowebackand.views.MainActivity;
+import com.example.wowebackand.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Date;

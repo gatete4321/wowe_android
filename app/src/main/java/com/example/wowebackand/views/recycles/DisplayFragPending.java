@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.viewModel.PendingViewModel;
-import com.example.wowebackand.views.MainActivity;
 import com.example.wowebackand.views.adapter.PendingAdapter;
 
 import java.util.Calendar;

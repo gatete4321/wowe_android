@@ -58,6 +58,7 @@ public class Completed_full_appoitement extends Fragment
                 Toast.makeText(getActivity(),"please fill data",Toast.LENGTH_SHORT).show();
                 return;
             }
+
         });
         delete.setOnClickListener((view1)->{
 
@@ -103,17 +104,4 @@ public class Completed_full_appoitement extends Fragment
 
     }
 
-    /**
-     * this will handle all onclick events
-     */
-    public void onClickListeners(){
-        delete.setOnClickListener((view)->{
-            //delete the appoitement
-        });
-
-        submit.setOnClickListener((view)->{
-            //submit ratings
-            //submit feedback
-        });
-    }
 }

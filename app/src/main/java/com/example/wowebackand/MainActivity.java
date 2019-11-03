@@ -1,4 +1,4 @@
-package com.example.wowebackand.views;
+package com.example.wowebackand;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;

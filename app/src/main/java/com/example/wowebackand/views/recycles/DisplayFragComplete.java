@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.viewModel.CompletedViewModel;
-import com.example.wowebackand.views.MainActivity;
 import com.example.wowebackand.views.adapter.CompletedAdapter;
 
 import androidx.annotation.NonNull;

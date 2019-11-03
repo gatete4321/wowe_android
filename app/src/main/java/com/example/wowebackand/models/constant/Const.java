@@ -1,4 +1,13 @@
 package com.example.wowebackand.models.constant;
 
-public class Const {
+import java.util.HashMap;
+import java.util.Map;
+
+public  class Const
+{
+    public static  Map<Integer,String> servicess=new HashMap<Integer, String>();
+
+    public static Map NotificationActions=new HashMap<Integer,String>();
+
+
 }

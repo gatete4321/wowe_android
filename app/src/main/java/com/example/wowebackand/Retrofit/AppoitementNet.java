@@ -23,10 +23,10 @@ public interface AppoitementNet
 //
 //    Call<List<Appoitement>> getPendingAppoitements(Integer clientId);
 
-    @POST("/create")
+    @POST("public/app/create")
     Call<String> createAppoitement(@Body Appoitement appoitement);
 
-    @POST("/delete")
+    @POST("public/app/delete")
     Call<String> deleteAppoitement(@Body AppoitementFilter filter);
 
 

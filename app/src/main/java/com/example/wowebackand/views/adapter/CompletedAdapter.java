@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.wowebackand.R;
 import com.example.wowebackand.models.Appoitement;
-import com.example.wowebackand.views.MainActivity;
+import com.example.wowebackand.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Date;
